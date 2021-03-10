@@ -58,14 +58,23 @@ class Main {
 		}
 	}
 	
-	static Node copyList(Node org)
-	{
-	   Node last=org;
-       while(last!=null)
+        static Node copyList(Node org)
         {
-         System.out.print(last.data+" ");
-         last=last.next;
-        }
-      return last;
-	}
+            if(org==null)
+              return null;
+           Node head=null;
+           Node n = new Node(org.data);
+           head=n;
+
+           Node temp=org.next;
+           Node last=head;
+           while(temp!=null)
+           {
+              last.next=new Node(temp.data);
+              last=last.next;
+              temp=temp.next;
+           }
+       return head;
+     }
+}
 }
